@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import logo  from "../../assets/ChatGPT Image 9 de jul. de 2025, 12_08_44.png";
 
 
 const Header = () => {
+
+  const navigate = useNavigate();
+
   return (
     <header className="bg-gray-900 w-full h-40 flex justify-center items-center ">
       <div className="w-9/12 flex justify-between items-center">
@@ -19,7 +23,7 @@ const Header = () => {
         </div>
         <nav className="w-4/12 bg-blue-500">
           <ul className="flex flex-row justify-around items-center gap-3 p-3">
-            <li className="font-bold text-amber-50"><button>Home</button></li>
+            <li className="font-bold text-amber-50"><button onClick={() => navigate('/')}>Home</button></li>
             <li className="font-bold text-amber-50"><button>Todos Os Produtos</button></li>
             <li className="font-bold text-amber-50"><button>Carrinho</button></li>
           </ul>
