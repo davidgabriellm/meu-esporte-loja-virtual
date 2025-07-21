@@ -6,25 +6,25 @@ interface Product {
   descripition?: string;
 }  
 
-export const bestSeller: Product[] = [
+export const mock: Product[] = [
     {
         ID: 1,
-        product_name: "bola de futebol nike pinch",
+        product_name: "Bola da Nike CBF Academy 5",
         product_price: 80,
-        image_url: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTQ7VZsLnHLNxIhCwySj9Mh_slPn6L77zMqQ3s3PnwYRuerfKKdwPzhLFoTaDIoV5SL805yC4tGBZQmwuFEslcE_TWjCaZDwJKcKDWl1tCUkoTtEIdvQxxL9QeFrZtdmy-WOxHuuu2baw&usqp=CAc"
+        image_url: "https://images.tcdn.com.br/img/img_prod/589314/bola_da_nike_cbf_academy_5_6_7741_1_e7a2b9de4ce3095ca948f6d719673ce7_20240515182119.png"
     },
     
     {
         ID: 2,
-        product_name: "Chuteira Society Original Para Campo Adulto Envio Imediato",
+        product_name: "Chuteira Society Mizuno Morelia",
         product_price: 120,
-        image_url: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSYP9H_PBhQxRpyXuAclDzr3YlNRgsWUWpzryZ9ZD843cpd0ly06huvBRuVpDMY4t9ze5iyM_NFFwBLHVE4NB4bupstKOsiBsNHNuC_Nk0hg9-mVYGfQt8O-k3-PGb2kHXBsi5E9A&usqp=CAc"
+        image_url: "https://www.mundodofutebol.com.br/lojas/00057707/prod/MIZUNOPARATAS.png"
     },
     {
         ID: 3,
-        product_name: "Tênis Olympikus Venum",
+        product_name: "TENIS DAY OLYMPIKUS PRETO NT 43927547-PTO",
         product_price: 130,
-        image_url: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQsRSRCkJgEjTY8lge_d4BtNUCdiqyS-G_2-mFYSmIqwW6DmGB6PBFCRiQtahKbmSeyQOPsBqyfc-s4jVDVVRZlSH-XTduUVmnOxPFlo3KYPwj8fCzwfFQtd2qbfiOMgvsVKG-UoCc&usqp=CAc"
+        image_url: "https://cdn.awsli.com.br/600x700/1621/1621592/produto/218711879/TENIS%20DAY%20OLYMPIKUS%20PRETO%20(1).png"
     },
     {
         ID: 4,
