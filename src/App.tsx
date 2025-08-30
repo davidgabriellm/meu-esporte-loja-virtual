@@ -9,9 +9,11 @@ function App() {
 
   return (
     <>
+    {/* <div className='flex justify-center items-center flex-col w-3xl'> */}
       <Header/>
       <Outlet/>
       <Footer/>
+    {/* </div> */}
     </>
   )
 }
