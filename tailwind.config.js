@@ -1,11 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // garante que funcione com TypeScript
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}', 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+    },
   },
-  plugins: [],
-}
+  plugins: [require('@tailwindcss/line-clamp')],
+};

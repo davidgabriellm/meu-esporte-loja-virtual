@@ -1,21 +1,50 @@
-import { mock } from "../../../mock"
-
+import { mock } from '../../../mock';
+import { useState } from 'react';
+import PriceFormatter from '../../components/priceFormatter/PriceFormatter';
 
 const AllProducts = () => {
+  const [ativo, setAtivo] = useState<number | null>(null); 
+  const [search, setSearch] = useState<string>(String);
+
+  const searchLowerCase = search.toLowerCase()
+
+  const filteredMock = mock.filter(product => product.product_name.toLowerCase().includes(searchLowerCase))
+
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,_minmax(280px,_1fr))] gap-10 px-52 py-8 bg-gray-100 justify-center items-center">
-      {mock.map((product) => (
-        <div className="bg-gray-50 rounded-2xl shadow-lg p-3">
-          <img src={product.image_url} className="w-full h-80"/>
-          <div className="flex justify-center flex-col items-center gap-2">
-            <h2 className="h-12">{product.product_name}</h2>
-            <span className="text-left w-full">{product.product_price}</span>
-            <button className="bg-blue-700 p-1 rounded-lg w-3/4 text-white">Adicionar ao carrinho</button>
+    <>
+    <input type="search" value={search} onChange={(e) => setSearch(e.target.value)} className='w-full px-1 py-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-100 shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-300 transition duration-200' placeholder='Pesquise o seu produto'/>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 pb-2 py-8 bg-gray-100 justify-center items-center">
+      {filteredMock.map(product => (
+        <div
+          key={product.ID}
+          onClick={() => setAtivo(product.ID)}
+          className={`
+            p-2 flex flex-col justify-center items-center cursor-pointer transition duration-500
+            border-b-2
+            ${ativo === product.ID ? "border-b-gray-200" : "border-b-transparent"}
+          `}
+        >
+          <img
+            src={product.image_url}
+            className={`
+              w-44 mb-2 transition-transform duration-500
+              ${ativo === product.ID ? "scale-110 mb-7" : "scale-100"}
+            `}
+          />
+          <div className="flex justify-center flex-col items-center gap-3 w-full">
+            <h2 className="text-left w-full items-center text-md font-bold line-clamp-2 text-gray-600">
+              {product.product_name.charAt(0).toUpperCase() + product.product_name.slice(1).toLowerCase()}
+            </h2>
+            <span className="text-left w-full"><PriceFormatter value={product.product_price}/></span>
+            <button className="bg-blue-700 rounded-lg w-full text-white p-2">
+              Adicionar ao carrinho
+            </button>
           </div>
         </div>
       ))}
     </div>
-  )
-}
+    </>
+  );
+};
 
-export default AllProducts
+export default AllProducts;

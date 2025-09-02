@@ -6,7 +6,6 @@ export default function RightSheet() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Função para navegar e fechar o sheet
   const handleNavigate = (path: string) => {
     navigate(path);
     setOpen(false);
@@ -38,7 +37,7 @@ export default function RightSheet() {
         `}
       >
         <div className="p-6 flex flex-col h-full justify-between">
-          {/* Navegação */}
+         
           <nav>
             <ul className="flex flex-col gap-4">
               <li>
@@ -67,8 +66,6 @@ export default function RightSheet() {
               </li>
             </ul>
           </nav>
-
-          {/* Botão fechar */}
           <button
             className="mt-6 w-full px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
             onClick={() => setOpen(false)}

@@ -5,7 +5,7 @@ import BottomSheet from "../buttonSheet/BottomSheet";
 
 const Header = () => {
   return (
-    <header className="bg-gray-900 w-full h-28 flex justify-center items-center">
+    <header className="bg-gray-900 w-full h-20 flex justify-center items-center">
       <div className="w-full flex justify-around items-center">
         <div className="flex w-1/4  items-center justify-center gap-5 ">
           <span className="w-1xl">
@@ -19,7 +19,7 @@ const Header = () => {
             <strong>Meu Esporte</strong>
           </span>
         </div>
-        <BottomSheet></BottomSheet>
+        <BottomSheet/>
       </div>
     </header>
   );
