@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/home/Home.tsx';
 import AllProducts from './pages/allProducts/AllProducts.tsx';
 import ShoppingCart from './pages/shoppingCart/ShoppingCart.tsx';
+import Product from './pages/productDescription/product.tsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: '/carrinho',
         element: <ShoppingCart/>
+      },
+      {
+        path: '/descricao-produto',
+        element: <Product/>
       }
     ],
   },
