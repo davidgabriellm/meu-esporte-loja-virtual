@@ -19,13 +19,15 @@ interface cartStore {
 
 const useCartStore = create<cartStore>((set, get) => ({
   cart: [],
-  addToCart: item =>
-    set(state => {
-      const existingItem = state.cart.find(cartItem => cartItem.ID === item.ID);
+  addToCart: (item) =>
+    set((state) => {
+      const existingItem = state.cart.find(
+        (cartItem) => cartItem.ID === item.ID,
+      );
 
       if (existingItem) {
         return {
-          cart: state.cart.map(cartItem =>
+          cart: state.cart.map((cartItem) =>
             cartItem.ID === item.ID
               ? { ...cartItem, quantity: cartItem.quantity + 1 }
               : cartItem,
@@ -37,14 +39,14 @@ const useCartStore = create<cartStore>((set, get) => ({
     }),
 
   removeItemToCart: (id: number) =>
-    set(state => ({
+    set((state) => ({
       ...state,
-      cart: state.cart.filter(item => item.ID !== id),
+      cart: state.cart.filter((item) => item.ID !== id),
     })),
 
   updateQuantity: (id, quantity) =>
-    set(state => ({
-      cart: state.cart.map(item =>
+    set((state) => ({
+      cart: state.cart.map((item) =>
         item.ID === id ? { ...item, quantity } : item,
       ),
     })),

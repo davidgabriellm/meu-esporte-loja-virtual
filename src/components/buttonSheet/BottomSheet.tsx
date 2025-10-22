@@ -14,35 +14,28 @@ export default function RightSheet() {
   return (
     <>
       <button
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition-colors"
+        className="rounded-lg bg-blue-600 px-4 py-2 text-white shadow-lg transition-colors hover:bg-blue-700"
         onClick={() => setOpen(true)}
       >
         <IoMenuSharp size={30} />
       </button>
 
-    
       {open && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="bg-opacity-50 fixed inset-0 z-40 bg-black"
           onClick={() => setOpen(false)}
         />
       )}
 
-  
       <div
-        className={`
-          fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50
-          transform transition-transform duration-300
-          ${open ? "translate-x-0" : "translate-x-full"}
-        `}
+        className={`fixed top-0 right-0 z-50 h-full w-80 transform bg-white shadow-2xl transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"} `}
       >
-        <div className="p-6 flex flex-col h-full justify-between">
-         
+        <div className="flex h-full flex-col justify-between p-6">
           <nav>
             <ul className="flex flex-col gap-4">
               <li>
                 <button
-                  className="w-full text-left px-4 py-2 rounded hover:bg-blue-100 font-semibold text-gray-800"
+                  className="w-full rounded px-4 py-2 text-left font-semibold text-gray-800 hover:bg-blue-100"
                   onClick={() => handleNavigate("/")}
                 >
                   Home
@@ -50,7 +43,7 @@ export default function RightSheet() {
               </li>
               <li>
                 <button
-                  className="w-full text-left px-4 py-2 rounded hover:bg-blue-100 font-semibold text-gray-800"
+                  className="w-full rounded px-4 py-2 text-left font-semibold text-gray-800 hover:bg-blue-100"
                   onClick={() => handleNavigate("/produtos")}
                 >
                   Todos Os Produtos
@@ -58,7 +51,7 @@ export default function RightSheet() {
               </li>
               <li>
                 <button
-                  className="w-full text-left px-4 py-2 rounded hover:bg-blue-100 font-semibold text-gray-800"
+                  className="w-full rounded px-4 py-2 text-left font-semibold text-gray-800 hover:bg-blue-100"
                   onClick={() => handleNavigate("/carrinho")}
                 >
                   Carrinho
@@ -67,7 +60,7 @@ export default function RightSheet() {
             </ul>
           </nav>
           <button
-            className="mt-6 w-full px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+            className="mt-6 w-full rounded bg-red-500 px-4 py-2 text-white transition-colors hover:bg-red-600"
             onClick={() => setOpen(false)}
           >
             Fechar

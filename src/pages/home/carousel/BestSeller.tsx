@@ -1,12 +1,7 @@
-import {bestSeller} from '../../../../mock'
-
+import { bestSeller } from "../../../../mock";
 
 const BestSeller = () => {
-  return (
-    <div>
-        
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default BestSeller
+export default BestSeller;

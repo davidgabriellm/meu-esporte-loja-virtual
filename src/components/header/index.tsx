@@ -6,37 +6,35 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="bg-gray-900 w-full h-20 flex justify-center items-center px-6">
-      <div className="w-full max-w-6xl flex justify-between items-center">
-        
+    <header className="flex h-20 w-full items-center justify-center bg-gray-900 px-6">
+      <div className="flex w-full max-w-6xl items-center justify-between">
         <div className="flex items-center gap-2">
           <img
             src={logo}
             alt="Logo Meu Esporte"
-            className="h-10 md:h-12 w-auto object-contain"
+            className="h-10 w-auto object-contain md:h-12"
           />
-          <span className="text-[18px] md:text-[25px] font-bold bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-[18px] font-bold text-transparent md:text-[25px]">
             Meu Esporte
           </span>
         </div>
 
-        
-        <nav className="hidden lg:flex gap-8">
+        <nav className="hidden gap-8 lg:flex">
           <button
             onClick={() => navigate("/")}
-            className="text-white hover:text-blue-400 transition-colors font-medium"
+            className="font-medium text-white transition-colors hover:text-blue-400"
           >
             Home
           </button>
           <button
             onClick={() => navigate("/produtos")}
-            className="text-white hover:text-blue-400 transition-colors font-medium"
+            className="font-medium text-white transition-colors hover:text-blue-400"
           >
             Todos os Produtos
           </button>
           <button
             onClick={() => navigate("/carrinho")}
-            className="text-white hover:text-blue-400 transition-colors font-medium"
+            className="font-medium text-white transition-colors hover:text-blue-400"
           >
             Carrinho
           </button>
