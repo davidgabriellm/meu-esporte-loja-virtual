@@ -22,19 +22,19 @@ const Header = () => {
         <nav className="hidden gap-8 lg:flex">
           <button
             onClick={() => navigate("/")}
-            className="font-medium text-white transition-colors hover:text-blue-400"
+            className="font-medium text-white transition-colors hover:text-blue-400 cursor-pointer"
           >
             Home
           </button>
           <button
             onClick={() => navigate("/produtos")}
-            className="font-medium text-white transition-colors hover:text-blue-400"
+            className="font-medium text-white transition-colors hover:text-blue-400 cursor-pointer"
           >
             Todos os Produtos
           </button>
           <button
             onClick={() => navigate("/carrinho")}
-            className="font-medium text-white transition-colors hover:text-blue-400"
+            className="font-medium text-white transition-colors hover:text-blue-400 cursor-pointer"
           >
             Carrinho
           </button>
