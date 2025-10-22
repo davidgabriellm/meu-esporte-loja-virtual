@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/home/Home.tsx';
 import AllProducts from './pages/allProducts/AllProducts.tsx';
 import ShoppingCart from './pages/shoppingCart/ShoppingCart.tsx';
-import Product from './pages/productDescription/product.tsx';
+import Product from './pages/productDescription/Product.tsx';
 
 const router = createBrowserRouter([
   {
@@ -19,22 +19,22 @@ const router = createBrowserRouter([
       },
       {
         path: '/produtos',
-        element: <AllProducts/>
+        element: <AllProducts />,
       },
       {
         path: '/carrinho',
-        element: <ShoppingCart/>
+        element: <ShoppingCart />,
       },
       {
         path: '/descricao-produto',
-        element: <Product/>
-      }
+        element: <Product />,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </StrictMode>,
 );

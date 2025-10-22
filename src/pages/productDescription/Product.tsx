@@ -18,7 +18,7 @@ const Product = () => {
       <p className="text-gray-600">{description}</p>
       <span className="text-sm text-yellow-600">Avaliação: 2.6</span>
       <button className="bg-blue-700 text-white px-4 py-2 rounded-lg w-full">
-        Adicionar à sacola
+        Adicionar ao carrinho
       </button>
     </div>
   );
