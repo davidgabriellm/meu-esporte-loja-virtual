@@ -7,8 +7,8 @@ export default function PriceFormatter({ value }: PriceProps) {
 
   return (
     <div className="flex items-start">
-      <span className="mr-0.5 text-[18px]">R$</span>
-      <span className="text-2xl font-bold">{inteiro}</span>
+      <span className="mr-0.5 text-[16px]">R$</span>
+      <span className="text-xl font-bold">{inteiro}</span>
       <span className="self-start text-sm">{decimal}</span>
     </div>
   );

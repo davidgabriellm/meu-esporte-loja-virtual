@@ -10,10 +10,10 @@ export interface Product {
 export const mock: Product[] = [
   {
     ID: 1,
-    product_name: "Bola da Nike CBF Academy 5",
+    product_name: "Bola de Socity da Nike CBF Academy 5",
     product_price: 80,
     image_url:
-      "https://images.tcdn.com.br/img/img_prod/589314/bola_da_nike_cbf_academy_5_6_7741_1_e7a2b9de4ce3095ca948f6d719673ce7_20240515182119.png",
+      "https://17889.cdn.simplo7.net/static/17889/sku/esportes-bola-nike-hj6614-100-academy-tamanho-5-campo-1754936413139.png",
     description: `A Bola Nike CBF Academy 5 foi desenvolvida para quem busca qualidade nos treinos e partidas. 
 Possui construção resistente e materiais de alta durabilidade, garantindo ótima performance em diferentes gramados. 
 O design oficial da seleção brasileira traz um estilo autêntico e cheio de personalidade. 
@@ -35,7 +35,7 @@ Um modelo clássico que combina tradição e tecnologia para jogadores exigentes
   {
     ID: 3,
     product_name: "TENIS DAY OLYMPIKUS PRETO NT 43927547-PTO",
-    product_price: 130,
+    product_price: 130.0,
     image_url:
       "https://cdn.awsli.com.br/600x700/1621/1621592/produto/218711879/TENIS%20DAY%20OLYMPIKUS%20PRETO%20(1).png",
     description: `O Tênis Day Olympikus Preto é ideal para quem busca conforto e praticidade. 
@@ -80,30 +80,7 @@ Foi nesta época que o Barça encantou o mundo com seu futebol mágico.
 Um modelo indispensável para fãs que valorizam tradição e conquistas marcantes.`,
     isHighlighted: true,
   },
-  {
-    ID: 7,
-    product_name: "Chuteira da Nike do Neymar 2015",
-    product_price: 200,
-    image_url:
-      "https://venifutebol.com.br/cdn/shop/files/ChuteiraCampoNikeZoomMercurialVapor15EliteFGLaranjaePreta2_b2404b3b-08bf-4207-8258-df0a68e8d483.png?v=1705689833",
-    description: `A Chuteira Nike Neymar 2015 é um modelo exclusivo que marcou época. 
-Com design ousado e moderno, foi inspirada no estilo de jogo do craque brasileiro. 
-Oferece leveza, tração e conforto, garantindo desempenho em partidas intensas. 
-Uma chuteira colecionável que une performance e história dentro de campo.`,
-    isHighlighted: true,
-  },
-  {
-    ID: 8,
-    product_name: "Chuteira Nike Superfly FG Mercurial Campo",
-    product_price: 350,
-    image_url:
-      "https://criadebase.bwimg.com.br/criadebase/produtos/chuteira-nike-superfly-fg-mercurial-campo-1730559227.3377.png",
-    description: `A Chuteira Nike Superfly FG Mercurial é projetada para jogadores que buscam velocidade e explosão. 
-Seu cabedal em material de última geração garante ajuste firme e leveza nos movimentos. 
-O solado foi desenvolvido para gramados naturais, oferecendo máxima tração e estabilidade. 
-Um produto premium para atletas que querem elevar seu desempenho.`,
-    isHighlighted: false,
-  },
+
   {
     ID: 9,
     product_name: "Camisa Milan Retro 2011/12 Vermelha e Preta Adidas",
@@ -142,7 +119,7 @@ São ideais para atletas que buscam conforto, estabilidade e desempenho.`,
   },
   {
     ID: 12,
-    product_name: "Bola da Copa do Mundo de 2010 Jabulani",
+    product_name: "Bola de Campo da Copa do Mundo de 2010 Jabulani",
     product_price: 80,
     image_url:
       "https://static.wixstatic.com/media/c4f34d_3191701e4a4341aca38b8cb58a45668d.png/v1/fill/w_280,h_280,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c4f34d_3191701e4a4341aca38b8cb58a45668d.png",
@@ -164,18 +141,7 @@ O solado foi desenvolvido especialmente para gramados sintéticos, garantindo tr
 É uma ótima opção para jogadores que buscam custo-benefício sem abrir mão do desempenho.`,
     isHighlighted: false,
   },
-  {
-    ID: 14,
-    product_name: "Chuteira Campo Adidas X Crazyfast Trava Mista",
-    product_price: 350,
-    image_url:
-      "https://criadebase.bwimg.com.br/criadebase/produtos/chuteira-campo-adidas-x-crazyfast-trava-mista-1719239921.7689.png",
-    description: `A Chuteira Adidas X Crazyfast foi projetada para máxima velocidade e explosão dentro de campo. 
-Com cabedal leve e solado de travas mistas, proporciona desempenho em diferentes gramados. 
-Seu design moderno transmite agressividade e estilo em cada detalhe. 
-Perfeita para atletas que querem se destacar com rapidez e agilidade.`,
-    isHighlighted: false,
-  },
+
   {
     ID: 15,
     product_name: "Camisa Palmeiras Puma I 23/24 - Jogador - Branco",
@@ -201,18 +167,6 @@ Um modelo perfeito para jogadores criativos e que gostam de ousar em campo.`,
     isHighlighted: false,
   },
   {
-    ID: 17,
-    product_name: "Camisa Bayern de Munique Vermelha Home I 2024/25",
-    product_price: 50,
-    image_url:
-      "https://maltaesportes.com.br/wp-content/uploads/2024/05/download-26-3.webp",
-    description: `A Camisa Bayern de Munique 24/25 homenageia a tradição do clube alemão. 
-Produzida pela Adidas, traz design moderno sem perder a essência bávara. 
-Seu tecido leve e respirável garante máximo conforto em todas as ocasiões. 
-Um item indispensável para torcedores que querem celebrar a grandeza do Bayern.`,
-    isHighlighted: false,
-  },
-  {
     ID: 18,
     product_name: "Camisa PSG Home 24/25 Masculina Nike Azul e Vermelho",
     product_price: 50,
@@ -227,7 +181,7 @@ Produzida em tecido respirável, oferece conforto em jogos e no dia a dia.
   {
     ID: 19,
     product_name: "Camisa Inter Miami Home 2025 Messi",
-    product_price: 50,
+    product_price: 100,
     image_url:
       "https://dcdn-us.mitiendanube.com/stores/003/315/722/products/inter-miami-home-2025-messi-1-b8c0c20fa06031922717423275236816-1024-1024.png",
     description: `A Camisa Inter Miami Home 2025 com nome e número de Messi é um item exclusivo. 
@@ -240,13 +194,40 @@ Produzida em tecido confortável e de alta qualidade, combina estilo e autentici
     ID: 20,
     product_name:
       "Chuteira Cristiano Ronaldo Manchester United Edição Especial",
-    product_price: 50,
+    product_price: 140.0,
     image_url:
       "https://conteudo.imguol.com.br/blogs/169/files/2017/04/852511_001_E_PREM_native_600.png",
     description: `A Chuteira Cristiano Ronaldo Manchester United é uma edição especial de homenagem. 
 Inspirada no período em que CR7 brilhou na Inglaterra, une estilo e performance. 
 O design exclusivo transmite a essência de um dos maiores jogadores da história. 
 Um produto raro e colecionável para fãs do português e do futebol mundial.`,
+    isHighlighted: false,
+  },
+  {
+    ID: 21,
+    product_name: "Tênis de corrida Nike Zoom Fly 5 PRM - Running Land",
+    product_price: 250.0,
+    image_url:
+      "https://magento.runningland.com.br/media/catalog/product/d/r/dr9963_001_c_prem_1__4.png?auto=webp&format=png&width=960",
+    description: `O Tênis de Corrida Nike Zoom Fly 5 PRM foi projetado para oferecer velocidade com conforto em longas distâncias. Possui entressola com espuma responsiva que impulsiona cada passada. O cabedal leve e respirável garante ventilação e suporte. Ideal para corredores que buscam desempenho e estilo premium.`,
+    isHighlighted: false,
+  },
+  {
+    ID: 22,
+    product_name: "Bola Futsal Penalty Rx 500 Xxii 521342 Valuti Calçados",
+    product_price: 110.0,
+    image_url:
+      "https://cdnv2.moovin.com.br/valuti/imagens/produtos/det/bola-futsal-penalty-rx-500-xxii-521342-c692a503b592c28cf499a2f6dc681c2e.png",
+    description: `A Bola de Futsal Penalty RX 500 XXII oferece excelente controle e precisão nas quadras. Desenvolvida com tecnologia que reduz o impacto e melhora o domínio, é ideal para treinos e jogos. Seu acabamento resistente garante durabilidade e ótimo desempenho. Perfeita para quem busca qualidade profissional no futsal.`,
+    isHighlighted: false,
+  },
+  {
+    ID: 23,
+    product_name: "Meia Performance Poliamida 21K Azul ROYAL/VERDE Pistache Cano Longo",
+    product_price: 20.0,
+    image_url:
+      "https://acdn-us.mitiendanube.com/stores/004/715/530/products/200-v02-u-frente-85981a36bb4e4ab79917313842126739-1024-1024.png",
+    description: `A Meia Performance Poliamida 21K foi desenvolvida para oferecer conforto e suporte em treinos e corridas longas. Possui tecido respirável que ajuda na ventilação e na rápida secagem do suor. Seu cano longo proporciona proteção e ajuste firme. Ideal para atletas que buscam performance com estilo.`,
     isHighlighted: false,
   },
 ];

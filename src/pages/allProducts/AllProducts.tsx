@@ -4,6 +4,7 @@ import PriceFormatter from "../../components/priceFormatter/PriceFormatter";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "../../store/cart.store";
 import { Product } from "../../../mock";
+
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 
 const AllProducts = () => {
@@ -50,7 +51,7 @@ const AllProducts = () => {
   return (
     <>
       {message && (
-        <div className="fixed top-0 z-50 flex w-full items-center justify-center gap-4 bg-orange-400 p-4 text-white shadow-lg">
+        <div className="fixed top-0 z-50 flex w-full items-center justify-center gap-4 bg-orange-400 p-4 text-white shadow-lg lg:right-1/4 lg:w-[600px] lg:rounded-b-[6px] lg:p-2">
           <MdOutlineAddShoppingCart size={40} />
           {message}
         </div>
@@ -63,27 +64,23 @@ const AllProducts = () => {
         className="w-full border border-gray-100 bg-white px-1 py-2 text-gray-700 placeholder-gray-400 shadow-sm transition duration-200 focus:border-gray-300 focus:ring-1 focus:ring-gray-300 focus:outline-none"
         placeholder="Pesquise o seu produto"
       />
-      <div className="grid grid-cols-1 items-center justify-center gap-12 bg-gray-100 py-8 pb-2 sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid grid-cols-1 items-center justify-center gap-12 bg-gray-100 py-8 pb-2 lg:grid-cols-4 lg:items-stretch lg:gap-5 lg:p-5">
         {filteredMock.map((product) => (
           <div
             key={product.ID}
             onClick={() => setAtivo(product.ID)}
-            className={`flex cursor-pointer flex-col items-center justify-center border-b-2 p-2 transition duration-500 ${
-              ativo === product.ID
-                ? "border-b-gray-200"
-                : "border-b-transparent"
-            } `}
+            className={`relative flex cursor-pointer items-center justify-center gap-8 border-b-2 p-4 transition duration-500 lg:flex-col lg:rounded-[3px] lg:border lg:border-gray-200 ${ativo === product.ID ? "mb-7 scale-110 border-b-gray-200 lg:mb-0 lg:scale-105 md:scale-100" : "scale-100 border-b-transparent"} lg:cursor-auto lg:hover:shadow-lg`}
           >
             <img
               src={product.image_url}
-              className={`mb-2 w-44 transition-transform duration-500 ${ativo === product.ID ? "mb-7 scale-110" : "scale-100"} `}
+              className={`flex w-24 items-center transition-transform duration-500 lg:w-40 ${ativo === product.ID ? "mb-7 scale-110" : "scale-100"} `}
             />
-            <div className="flex w-full flex-col items-center justify-center gap-3">
+            <div className="flex w-full flex-col items-center justify-center gap-4">
               <button
                 className="w-full text-left"
                 onClick={() => onSeeDetailsClick(product)}
               >
-                <h2 className="text-md line-clamp-2 font-bold text-gray-600">
+                <h2 className="text-md line-clamp-2 cursor-pointer font-bold text-gray-600 duration-100 lg:transition-all lg:delay-200 lg:hover:text-orange-500">
                   {product.product_name.charAt(0).toUpperCase() +
                     product.product_name.slice(1).toLowerCase()}
                 </h2>
@@ -92,10 +89,10 @@ const AllProducts = () => {
                 <PriceFormatter value={product.product_price} />
               </span>
               <button
-                className="w-full rounded-lg bg-blue-700 p-2 text-white"
                 onClick={() => handleAddToCart(product)}
+                className="absolute right-8 bottom-2 cursor-pointer rounded-3xl bg-orange-500 p-2.5 hover:bg-blue-600 md:right-10 md:bottom-3 lg:right-7 lg:bottom-4"
               >
-                Adicionar ao carrinho
+                <MdOutlineAddShoppingCart size={22} />
               </button>
             </div>
           </div>
