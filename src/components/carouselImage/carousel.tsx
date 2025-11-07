@@ -1,4 +1,4 @@
-import React from "react";
+
 import PriceFormatter from "../priceFormatter/PriceFormatter";
 
 // Supondo que o arquivo mock seja algo assim:
@@ -17,7 +17,7 @@ export default function Carousel({ produtos }) {
             <img
               src={p.image_url}
               alt={p.product_name}
-              className="w-full object-cover"
+              className="w-full h-48 object-contain"
             />
             <div className="p-3 flex flex-col gap-4">
               <p className="font-semibold text-sm">{p.product_name}</p>

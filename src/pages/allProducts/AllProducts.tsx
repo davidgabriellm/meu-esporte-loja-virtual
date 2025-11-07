@@ -2,7 +2,7 @@ import { useState } from "react";
 import PriceFormatter from "../../components/priceFormatter/PriceFormatter";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "../../store/cart.store";
-import { Product } from "../../hooks/useProducts";
+import { Product } from "../../interface/product";
 import { useProducts } from "../../hooks/useProducts";
 
 import { MdOutlineAddShoppingCart } from "react-icons/md";
@@ -23,15 +23,7 @@ const AllProducts = () => {
   );
 
   const onSeeDetailsClick = (product: Product) => {
-    navigate(
-      `/descricao-produto?title=${encodeURIComponent(
-        product.name,
-      )}&price=${product.price}&image=${encodeURIComponent(
-        product.image_url,
-      )}&description=${encodeURIComponent(
-        product.description ?? "Sem descrição",
-      )}`,
-    );
+     navigate(`/produto/${product.id}`);
   };
 
   const handleAddToCart = (product: Product) => {
@@ -77,7 +69,7 @@ const AllProducts = () => {
             onClick={() => setAtivo(product.id)}
             className={`relative flex cursor-pointer items-center justify-center gap-8 border-b-2 p-4 transition duration-500 lg:flex-col lg:rounded-[3px] lg:border lg:border-gray-200 ${ativo === product.id ? "mb-7 scale-110 border-b-gray-200 md:scale-100 lg:mb-0 lg:scale-105" : "scale-100 border-b-transparent"} lg:cursor-auto lg:hover:shadow-lg`}
           >
-            
+
             <img
               src={product.image_url}
               className={`flex w-24 items-center transition-transform duration-500 lg:w-40 ${ativo === product.id ? "mb-7 scale-110" : "scale-100"} `}
