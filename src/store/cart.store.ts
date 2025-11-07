@@ -1,61 +1,63 @@
 import { create } from "zustand";
 
-interface cartItem {
-  ID: number;
-  product_name: string;
-  product_price: number;
+interface CartItem {
+  id: string; 
+  name: string;
+  price: number;
   image_url: string;
   description: string;
   quantity: number;
 }
 
-interface cartStore {
-  cart: cartItem[];
-  addToCart: (item: cartItem) => void;
-  removeItemToCart: (id: number) => void;
-  updateQuantity: (id: number, quantity: number) => void;
+interface CartStore {
+  cart: CartItem[];
+  addToCart: (item: Omit<CartItem, "quantity">) => void;
+  removeItemToCart: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void;
   getTotalPrice: () => number;
 }
 
-const useCartStore = create<cartStore>((set, get) => ({
+const useCartStore = create<CartStore>((set, get) => ({
   cart: [],
+
   addToCart: (item) =>
     set((state) => {
       const existingItem = state.cart.find(
-        (cartItem) => cartItem.ID === item.ID,
+        (cartItem) => cartItem.id === item.id
       );
 
       if (existingItem) {
         return {
           cart: state.cart.map((cartItem) =>
-            cartItem.ID === item.ID
+            cartItem.id === item.id
               ? { ...cartItem, quantity: cartItem.quantity + 1 }
-              : cartItem,
+              : cartItem
           ),
         };
       }
 
-      return { cart: [...state.cart, { ...item, quantity: 1 }] };
+      return {
+        cart: [...state.cart, { ...item, quantity: 1 }],
+      };
     }),
 
-  removeItemToCart: (id: number) =>
+  removeItemToCart: (id) =>
     set((state) => ({
-      ...state,
-      cart: state.cart.filter((item) => item.ID !== id),
+      cart: state.cart.filter((item) => item.id !== id),
     })),
 
   updateQuantity: (id, quantity) =>
     set((state) => ({
       cart: state.cart.map((item) =>
-        item.ID === id ? { ...item, quantity } : item,
+        item.id === id ? { ...item, quantity } : item
       ),
     })),
 
-  getTotalPrice: (): number => {
+  getTotalPrice: () => {
     const state = get();
     return state.cart.reduce(
-      (total, item) => total + item.product_price * item.quantity,
-      0,
+      (total, item) => total + item.price * item.quantity,
+      0
     );
   },
 }));

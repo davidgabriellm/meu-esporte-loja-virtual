@@ -12,21 +12,21 @@ const ShoppingCart = () => {
     <div className="grid grid-cols-1 gap-4 bg-gray-100 p-4">
       {cart.map((c) => (
         <div
-          key={c.ID}
+          key={c.id}
           className="relative flex flex-col gap-4 border-b-2 border-gray-200 pt-7"
         >
           <button
             className="absolute top-0 left-0"
-            onClick={() => removeItemToCart(c.ID)}
+            onClick={() => removeItemToCart(c.id)}
           >
             <MdCancelPresentation size={22} />
           </button>
 
           <div className="flex items-center justify-start gap-3">
-            <img src={c.image_url} alt={c.product_name} className="w-14" />
+            <img src={c.image_url} alt={c.name} className="w-14" />
             <div className="flex flex-col">
               <h2 className="line-clamp-1 max-w-[275px] text-[18px] font-semibold text-gray-800">
-                {c.product_name}
+                {c.name}
               </h2>
               <p className="line-clamp-2 max-w-[275px] text-[13px] text-gray-800">
                 {c.description}
@@ -35,11 +35,11 @@ const ShoppingCart = () => {
           </div>
 
           <div className="flex justify-between gap-5">
-            <PriceFormatter value={c.product_price} />
+            <PriceFormatter value={c.price} />
             <div className="flex items-center gap-3">
               <button
                 onClick={() =>
-                  updateQuantity(c.ID, Math.max(c.quantity - 1, 1))
+                  updateQuantity(c.id, Math.max(c.quantity - 1, 1))
                 }
               >
                 <MdDeleteForever
@@ -52,7 +52,7 @@ const ShoppingCart = () => {
 
               <span className="text-[20px]">{c.quantity}</span>
 
-              <button onClick={() => updateQuantity(c.ID, c.quantity + 1)}>
+              <button onClick={() => updateQuantity(c.id, c.quantity + 1)}>
                 <IoMdAddCircleOutline size={25} />
               </button>
             </div>

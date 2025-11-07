@@ -8,6 +8,8 @@ import AllProducts from "./pages/allProducts/AllProducts.tsx";
 import ShoppingCart from "./pages/shoppingCart/ShoppingCart.tsx";
 import Product from "./pages/productDescription/Product.tsx";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,8 +35,12 @@ const router = createBrowserRouter([
   },
 ]);
 
+const client = new QueryClient()
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    <QueryClientProvider client={client}>
     <RouterProvider router={router} />
+    </QueryClientProvider>
   </StrictMode>,
 );
