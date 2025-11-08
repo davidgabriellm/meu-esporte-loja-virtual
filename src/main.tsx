@@ -7,6 +7,9 @@ import Home from "./pages/home/Home.tsx";
 import AllProducts from "./pages/allProducts/AllProducts.tsx";
 import ShoppingCart from "./pages/shoppingCart/ShoppingCart.tsx";
 import Product from "./pages/productDescription/Product.tsx";
+import Login from "./pages/auth/Login.tsx";
+import Register from "./pages/auth/Register.tsx";
+import ProtectedRoute from "./routes/ProtectedRoute.tsx";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -25,7 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/carrinho",
-        element: <ShoppingCart />,
+        element: (
+          <ProtectedRoute>
+            <ShoppingCart />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/produto/:id",
@@ -33,6 +40,8 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "/login", element: <Login /> },
+  { path: "/register", element: <Register /> },
 ]);
 
 const client = new QueryClient()

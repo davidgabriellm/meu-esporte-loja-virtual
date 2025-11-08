@@ -1,13 +1,13 @@
 
 import PriceFormatter from "../priceFormatter/PriceFormatter";
+import { Product } from "../../../mock";
 
-// Supondo que o arquivo mock seja algo assim:
-// const produtos = [ { id: 1, nome: "Produto 1", imagem: "url" }, ... ]
-// Você apenas importa e passa como props.
-
-export default function Carousel({ produtos }) {
+interface CarouselProps {
+  produtos: Product[];
+}
+export default function Carousel({ produtos }: CarouselProps) {
   return (
-    <div className="w-full overflow-x-auto flex scroll-smooth no-scrollbar gap-6 px-4 py-6 scroll-smooth snap-x snap-mandatory touch-pan-x scrollbar-hide [&::-webkit-scrollbar]:hidden">
+    <div className="w-full overflow-x-auto flex no-scrollbar gap-6 px-4 py-6 scroll-smooth snap-x snap-mandatory touch-pan-x scrollbar-hide [&::-webkit-scrollbar]:hidden">
       {produtos.map((p) => (
         <div
           key={p.ID}
