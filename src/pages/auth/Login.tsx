@@ -77,6 +77,7 @@ export default function Login() {
             type="submit"
             disabled={loginMutation.isPending}
             className="bg-orange-500 hover:bg-orange-600 transition text-white font-medium py-2 rounded-md mt-3 disabled:opacity-60"
+            onClick={() => navigate("/")}
           >
             {loginMutation.isPending ? "Carregando..." : "Entrar"}
           </button>

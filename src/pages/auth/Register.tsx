@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { api } from "../../services/api";
-import { useNavigate } from "react-router-dom"; // ✅ Import
+import { useNavigate } from "react-router-dom"; 
+import { useRegister } from "../../hooks/queries/useRegister";
 
 const schema = z
   .object({
@@ -19,7 +19,9 @@ const schema = z
 type RegisterFormData = z.infer<typeof schema>;
 
 export default function Register() {
-  const navigate = useNavigate(); // ✅ Hook de navegação
+
+  const {mutate: registerUser} = useRegister()
+  const navigate = useNavigate(); 
 
   const {
     register,
@@ -30,11 +32,17 @@ export default function Register() {
   });
 
   const onSubmit = async (data: RegisterFormData) => {
-    await api.post("/users", data);
-
+   registerUser({
+    name: data.name,
+    email: data.email,
+    password: data.password,
+    passwordConfirmation: data.passwordConfirmation, 
+  });
+  alert("Usuário cadastrado com sucesso!");
+  navigate("/login");
     alert("Usuário cadastrado com sucesso!");
 
-    navigate("/login"); // ✅ Redireciona para o login
+    navigate("/login"); 
   };
 
   return (

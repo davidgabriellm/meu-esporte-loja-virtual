@@ -1,11 +1,12 @@
 import { useState } from "react";
 import PriceFormatter from "../../components/priceFormatter/PriceFormatter";
 import { useNavigate } from "react-router-dom";
-import useCartStore from "../../store/cart.store";
 import { Product } from "../../interface/product";
 import { useProducts } from "../../hooks/useProducts";
+import { useAddToCart } from "../../hooks/cart/useAddCartItem";
 
 import { MdOutlineAddShoppingCart } from "react-icons/md";
+
 
 const AllProducts = () => {
   const navigate = useNavigate();
@@ -14,9 +15,10 @@ const AllProducts = () => {
   const [message, setMessage] = useState<string>("");
 
   const { data: products = [], isLoading } = useProducts();
+  const { mutate: addToCart } = useAddToCart();
 
   const searchLowerCase = search.toLowerCase();
-  const { addToCart } = useCartStore();
+  
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchLowerCase),
@@ -27,13 +29,7 @@ const AllProducts = () => {
   };
 
   const handleAddToCart = (product: Product) => {
-    addToCart({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image_url: product.image_url,
-      description: product.description ?? "Sem descrição",
-    });
+    addToCart(product.id);
 
     window.scrollTo({ top: 0, behavior: "smooth" });
 
