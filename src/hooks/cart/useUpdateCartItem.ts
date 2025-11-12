@@ -15,7 +15,7 @@ export function useUpdateCartQuantity() {
     mutationFn: ({ id, quantity }: { id: string; quantity: number }) =>
       updateItemQuantity(id, quantity),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["cart-items"] });
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
     },
   });
 }

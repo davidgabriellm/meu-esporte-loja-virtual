@@ -14,7 +14,7 @@ export function useRemoveFromCart() {
   return useMutation({
     mutationFn: removeFromCart,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["cart-items"] });
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
     },
   });
 }

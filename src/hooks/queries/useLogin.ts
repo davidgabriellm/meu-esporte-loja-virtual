@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "../../services/api";
 
 interface LoginUserData {
@@ -12,10 +12,14 @@ async function loginUser(data: LoginUserData) {
 }
 
 export function useLogin() {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
       localStorage.setItem("token", data.token);
+      queryClient.invalidateQueries({ queryKey: ["user"] });
     },
   });
 }
+

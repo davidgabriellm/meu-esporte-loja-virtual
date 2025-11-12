@@ -16,7 +16,7 @@ export function useAddToCart() {
   return useMutation({
     mutationFn: addToCart,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["cart-items"] });
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
     },
   });
 }
