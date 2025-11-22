@@ -2,15 +2,18 @@ import { useParams } from "react-router-dom";
 import { useProduct } from "../../hooks/useProduct";
 import PriceFormatter from "../../components/priceFormatter/PriceFormatter";
 import Carousel from "../../components/carouselImage/carousel";
-import { mock } from "../../../mock";
+import { useProducts } from "../../hooks/useProducts";
 
 const Product = () => {
   const { id } = useParams();
   const { data: product, isLoading, error } = useProduct(id!);
+  const {data: products = []} = useProducts()
 
   if (isLoading) return <p className="p-4">Carregando produto...</p>;
   if (error) return <p className="p-4 text-red-600">Erro ao carregar produto</p>;
   if (!product) return <p className="p-4">Produto não encontrado</p>;
+
+  const relatedProducts = products.filter((p) => p.id !== product.id);
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-4 bg-gray-100 p-5 py-8 pb-2">
@@ -34,7 +37,7 @@ const Product = () => {
         Você também pode gostar
       </h3>
 
-      <Carousel produtos={mock} />
+      <Carousel produtos={relatedProducts} />
 
       {/* <div className="hidden lg:flex"></div> */}
       

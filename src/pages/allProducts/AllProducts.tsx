@@ -3,10 +3,9 @@ import PriceFormatter from "../../components/priceFormatter/PriceFormatter";
 import { useNavigate } from "react-router-dom";
 import { Product } from "../../interface/product";
 import { useProducts } from "../../hooks/useProducts";
-import { useAddToCart } from "../../hooks/cart/useAddCartItem";
+import { useCartStore } from "../../store/cart.store";
 
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-
 
 const AllProducts = () => {
   const navigate = useNavigate();
@@ -15,21 +14,21 @@ const AllProducts = () => {
   const [message, setMessage] = useState<string>("");
 
   const { data: products = [], isLoading } = useProducts();
-  const { mutate: addToCart } = useAddToCart();
+
+  const addToCart = useCartStore((state) => state.addToCart)
 
   const searchLowerCase = search.toLowerCase();
-  
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchLowerCase),
   );
 
   const onSeeDetailsClick = (product: Product) => {
-     navigate(`/produto/${product.id}`);
+    navigate(`/produto/${product.id}`);
   };
 
   const handleAddToCart = (product: Product) => {
-    addToCart(product.id);
+    addToCart({...product, quantity: 1});
 
     window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -63,12 +62,11 @@ const AllProducts = () => {
           <div
             key={product.id}
             onClick={() => setAtivo(product.id)}
-            className={`relative flex cursor-pointer items-center justify-center gap-8 border-b-2 p-4 transition duration-500 lg:flex-col lg:rounded-[3px] lg:border lg:border-gray-200 ${ativo === product.id ? "mb-7 scale-110 border-b-gray-200 md:scale-100 lg:mb-0 lg:scale-105" : "scale-100 border-b-transparent"} lg:cursor-auto lg:hover:shadow-lg`}
+            className={`relative flex cursor-pointer items-center justify-center gap-8 border-b-2 p-4 transition duration-500 lg:flex-col lg:rounded-[3px] lg:border lg:border-gray-200 ${ativo === product.id ? "mb-5 scale-105 border-b-gray-200 md:scale-100 lg:mb-0 lg:scale-100" : "scale-100 border-b-transparent"} lg:cursor-auto lg:hover:shadow-lg`}
           >
-
             <img
               src={product.image_url}
-              className={`flex w-24 items-center transition-transform duration-500 lg:w-40 ${ativo === product.id ? "mb-7 scale-110" : "scale-100"} `}
+              className={`flex w-24 items-center transition-transform duration-500 lg:w-40 ${ativo === product.id ? "mb-7 scale-102" : "scale-100"} `}
             />
             <div className="flex w-full flex-col items-center justify-center gap-4">
               <button
